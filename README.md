@@ -12,7 +12,7 @@
 
 ## Troubleshootings
 - Install Audio Compatibility Patch module if encounter processing problem
-- Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) (choose one, don't use both!) if you using other audio mods
+- Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only for now) (choose one, don't use both!) if you using other audio mods
 - Delete /data/adb/modules/AudioFxMoto via recovery if facing bootloop and send copied and zipped /data/system/dropbox files
 - Open issues and send full logcats if this module is not working for your device
 
