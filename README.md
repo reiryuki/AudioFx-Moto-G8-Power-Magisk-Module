@@ -8,7 +8,7 @@
 - Magisk installed
 
 ## Installation Guide
-- Install the module via Magisk Manager or recovery
+- Install the module via Magisk app or recovery
 - Reboot
 
 ## Troubleshootings
