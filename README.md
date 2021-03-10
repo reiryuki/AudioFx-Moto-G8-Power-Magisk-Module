@@ -5,25 +5,17 @@
 
 ## Requirements
 - Android 9, 10, or 11
+- Magisk installed
 
 ## Installation Guide
-- Install the module via Magisk Manager only
+- Install the module via Magisk Manager or recovery
 - Reboot
 
 ## Troubleshootings
-- Install Audio Compatibility Patch module if encounter processing problem
 - Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only for now) (choose one, don't use both!) if you using other audio mods
-- Delete /data/adb/modules/AudioFxMoto via recovery if facing bootloop and send copied and zipped /data/system/dropbox files
-- Open issues and send full logcats if this module is not working for your device
 
-## Attention!
-- Always make nandroid backup before install or updating version, these are just experiments!
-- Don't report anything without logcats!
-- Special thanks to all people that helped and tested my modules.
-
-## Telegram
-- https://t.me/audioryukimods
-- https://t.me/modsandco
+# Report Guide
+- https://t.me/audioryukimods/2618
 
 ## Donate
 - https://www.paypal.me/reiryuki
