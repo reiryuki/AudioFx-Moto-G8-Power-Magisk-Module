@@ -1,4 +1,4 @@
-# Audio FX Moto G8 Power Magisk Module
+# AudioFx Moto G8 Power Magisk Module
 
 ## Descriptions
 - An equalizer ported from Motorola Moto G8 Power (cebu)
