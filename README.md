@@ -14,11 +14,12 @@
 ## Troubleshootings
 - Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only for now) (choose one, don't use both!) if you using other audio mods
 
-# Report Guide
+## Bug Report
 - https://t.me/audioryukimods/2618
 
-## Donate
+## Thanks for Donations
+- https://t.me/audioryukimods/2619
 - https://www.paypal.me/reiryuki
 
 ## Download
-- Link bellow at "Releases".
+- Tap "Releases"
