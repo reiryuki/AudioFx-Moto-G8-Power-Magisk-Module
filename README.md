@@ -2,6 +2,7 @@
 
 ## Descriptions
 - An equalizer ported from Motorola Moto G8 Power (cebu)
+- Global type soundfx
 
 ## Requirements
 - Android 9, 10, or 11
