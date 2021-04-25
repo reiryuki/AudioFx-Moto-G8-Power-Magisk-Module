@@ -13,7 +13,7 @@
 - Reboot
 
 ## Optional
-- You can enable post process music stream mode so the dolby can be used together with DTSX or Audio Wizard or any post process type soundfx (but the soundfx cannot be turned off) by run at Terminal Emulator:
+- You can enable post process music stream mode so the FX can be used together with DTSX or Audio Wizard or any post process type soundfx (but the soundfx cannot be turned off) by run at Terminal Emulator:
   
   su
 
