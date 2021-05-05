@@ -13,13 +13,13 @@
 - Reboot
 
 ## Optional
-- You can enable post process music stream mode so the FX can be used together with DTSX or Audio Wizard or any post process type soundfx (but the soundfx cannot be turned off) by run at Terminal Emulator:
+- You can enable post process stream mode so the FX can be used together with DTSX or Audio Wizard or any post process type soundfx (but the FX cannot be turned off) by run at Terminal Emulator:
   
   su
 
-  `setprop music.stream 1`
+  `setprop stream.mode mravn`
 
-  Reflash the module after.
+  Reflash the module after. On older version, it's `setprop music.stream 1`.
 
 - You can reset the data by run at Terminal Emulator:
 
