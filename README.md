@@ -19,7 +19,7 @@
 
   `setprop stream.mode mravn`
 
-  Reflash the module after. On older version, it's `setprop music.stream 1`.
+  Flash the module after.
 
 - You can reset the data by run at Terminal Emulator:
 
@@ -27,7 +27,7 @@
 
   `setprop audiofx.cleanup 1`
 
-  Reflash the module after.
+  Flash the module after.
 
 ## Troubleshootings
 - Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only for now) (choose one, don't use both!) if you using other audio mods
@@ -40,4 +40,4 @@
 - https://www.paypal.me/reiryuki
 
 ## Download
-- Tap "Releases"
+- Moved link here: https://www.pling.com/p/1531559/
