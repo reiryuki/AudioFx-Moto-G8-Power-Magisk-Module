@@ -33,10 +33,10 @@
 - Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only for now) (choose one, don't use both!) if you using other audio mods
 
 ## Bug Report
-- https://t.me/audioryukimods/2618
+- https://t.me/androidryukimodsdiscussions/2618
 
 ## Thanks for Donations
-- https://t.me/audioryukimods/2619
+- https://t.me/androidryukimodsdiscussions/2619
 - https://www.paypal.me/reiryuki
 
 ## Download
