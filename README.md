@@ -13,14 +13,7 @@
 - Reboot
 
 ## Optional
-- You can enable post process stream mode so the FX can be used together with DTSX or Audio Wizard or any post process type soundfx (but the FX cannot be turned off) by run at Terminal Emulator:
-  
-  su
-
-  `setprop stream.mode mravn`
-
-  Flash the module after.
-
+- https://t.me/androidryukimodsdiscussions/26764
 - You can reset the data by run at Terminal Emulator:
 
   su
