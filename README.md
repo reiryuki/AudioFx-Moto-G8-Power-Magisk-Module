@@ -12,7 +12,7 @@
 - Install the module via Magisk app or recovery
 - Reboot
 
-## Optional
+## Optionals
 - https://t.me/androidryukimodsdiscussions/26764
 - You can reset the data by run at Terminal Emulator:
 
