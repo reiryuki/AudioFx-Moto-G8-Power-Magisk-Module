@@ -28,6 +28,10 @@
 ## Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
 
+## Credits
+- Android Ryuki Mods Discussions Team
+- https://t.me/androidryukimodsdiscussions/25188
+
 ## Thanks for Donations
 - https://t.me/androidryukimodsdiscussions/2619
 - https://www.paypal.me/reiryuki
