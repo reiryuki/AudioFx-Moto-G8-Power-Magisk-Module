@@ -5,7 +5,7 @@
 - Global type soundfx
 
 ## Requirements
-- Android 8 until 12
+- Android 8 and up
 - Magisk installed
 
 ## Installation Guide
@@ -26,15 +26,16 @@
 - Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only for now) (choose one, don't use both!) if you using other audio mods
 
 ## Bug Report
-- https://t.me/androidryukimodsdiscussions/2618
+- https://t.me/androidryukimodsdiscussions/2618 (Issues will be closed immediately without this.)
 
 ## Credits
-- Android Ryuki Mods Discussions Team
-- https://t.me/androidryukimodsdiscussions/25188
+- https://t.me/viperatmos
+- https://t.me/androidryukimodsdiscussions
+- https://t.me/androidappsportdevelopment
 
 ## Thanks for Donations
 - https://t.me/androidryukimodsdiscussions/2619
 - https://www.paypal.me/reiryuki
 
 ## Download
-- Moved link here: https://www.pling.com/p/1531559/
+- https://www.pling.com/p/1531559/
