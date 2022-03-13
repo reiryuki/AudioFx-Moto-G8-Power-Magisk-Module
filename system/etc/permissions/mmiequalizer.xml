@@ -1,1 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="mmiequalizer"
+        file="/system/framework/mmiequalizer.jar"/>
+</permissions>
 
