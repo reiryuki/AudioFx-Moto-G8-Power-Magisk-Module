@@ -10,9 +10,11 @@
 
 ## Installation Guide
 - Install the module via Magisk app or recovery
+- Install AML module only if using any other audio mod modules
 - Reboot
 
 ## Optionals
+- https://t.me/androidryukimodsdiscussions/60861
 - https://t.me/androidryukimodsdiscussions/26764
 - You can reset the data by run at Terminal Emulator:
 
@@ -20,10 +22,10 @@
 
   `setprop audiofx.cleanup 1`
 
-  Flash the module after.
+  Re-install the module after.
 
 ## Troubleshootings
-- Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only for now) (choose one, don't use both!) if you using other audio mods
+- https://t.me/androidryukimodsdiscussions/29836
 
 ## Bug Report
 - https://t.me/androidryukimodsdiscussions/2618 (Issues will be closed immediately without this.)
