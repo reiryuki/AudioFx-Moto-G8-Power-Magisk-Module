@@ -2,6 +2,7 @@
 
 MODPATH=${0%/*}
 API=`getprop ro.build.version.sdk`
+AML=/data/adb/modules/aml
 
 # debug
 exec 2>$MODPATH/debug.log
@@ -24,36 +25,49 @@ for NAMES in $NAME; do
   fi
 done
 
+# restart
+killall audioserver
+
 # wait
 sleep 20
 
 # mount
-AML=/data/adb/modules/aml
+NAME="*audio*effects*.conf -o -name *audio*effects*.xml -o -name *policy*.conf -o -name *policy*.xml"
 if [ ! -d $AML ] || [ -f $AML/disable ]; then
   DIR=$MODPATH/system/vendor
 else
   DIR=$AML/system/vendor
 fi
-FILE=`find $DIR/odm/etc -maxdepth 1 -type f -name *audio*effects*.conf\
-      -o -name *audio*effects*.xml -o -name *audio*policy*.conf\
-      -o -name *stage*policy*.conf -o -name *audio*policy*.xml`
-if [ "$FILE" ]; then
+FILE=`find $DIR/odm/etc -maxdepth 1 -type f -name $NAME`
+if [ "`realpath /odm/etc`" != /vendor/odm/etc ] && [ "$FILE" ]; then
   for i in $FILE; do
     j="$(echo $i | sed "s|$DIR||")"
     umount $j
     mount -o bind $i $j
   done
+  killall audioserver
 fi
-
-# restart
-killall audioserver
+if [ ! -d $AML ] || [ -f $AML/disable ]; then
+  DIR=$MODPATH/system
+else
+  DIR=$AML/system
+fi
+FILE=`find $DIR/etc -maxdepth 1 -type f -name $NAME`
+if [ -d /my_product/etc ] && [ "$FILE" ]; then
+  for i in $FILE; do
+    j="$(echo $i | sed "s|$DIR||")"
+    umount /my_product$j
+    mount -o bind $i /my_product$j
+  done
+  killall audioserver
+fi
 
 # wait
 sleep 40
 
 # allow
 PKG=com.motorola.audiofx
-if [ "$API" -gt 29 ]; then
+if [ "$API" -ge 30 ]; then
   appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
 fi
 PID=`pidof $PKG`
