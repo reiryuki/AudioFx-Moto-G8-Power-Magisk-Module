@@ -3,6 +3,7 @@
 ## Descriptions
 - An equalizer ported from Motorola Moto G8 Power (cebu)
 - Global type soundfx
+- Sources: https://github.com/reiryuki/AudioFx-Moto-G8-Power-Magisk-Module/blob/main/module.prop
 
 ## Requirements
 - Android 8 and up
