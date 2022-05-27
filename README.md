@@ -14,6 +14,12 @@
 - Install AML module only if using any other audio mod modules
 - Reboot
 
+## Tested on
+- CrDroid ROM Android 10
+- DotOS ROM Android 11
+- Ancient OS ROM Android 12
+- Nusantara ROM Android 12L
+
 ## Optionals
 - https://t.me/androidryukimodsdiscussions/60861
 - https://t.me/androidryukimodsdiscussions/26764
