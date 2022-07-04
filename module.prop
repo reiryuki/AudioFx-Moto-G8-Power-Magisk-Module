@@ -1,7 +1,7 @@
 id=AudioFxMoto
 name=AudioFx Moto G8 Power
-version=v3.8
-versionCode=28
+version=v3.9-beta.1
+versionCode=29
 author=Rei Ryuki the Fixer
 description=An equalizer global type soundfx ported from Motorola G8 Power for any Android 8 and up.
 # Source: https://dumps.tadiphone.dev/dumps/motorola/cebu msi-user-11-RZCS31.Q2-57-12-1-6e2bd-release-keys

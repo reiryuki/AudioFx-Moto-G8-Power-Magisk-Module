@@ -13,6 +13,11 @@ if [ -f $FILE ]; then
   sh $FILE
 fi
 
+# context
+chcon -R u:object_r:vendor_file:s0 $MODPATH/system/vendor
+chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/system/vendor/etc
+chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/system/vendor/odm/etc
+
 # etc
 if [ -d /sbin/.magisk ]; then
   MAGISKTMP=/sbin/.magisk
