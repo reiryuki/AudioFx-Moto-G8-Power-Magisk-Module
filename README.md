@@ -1,18 +1,37 @@
 # AudioFx Moto G8 Power Magisk Module
 
+## DISCLAIMER
+- Moto apps and blobs are owned by Motorola™.
+- The MIT license specified here is for the Magisk Module, not for Moto apps and blobs.
+
 ## Descriptions
-- An equalizer ported from Motorola Moto G8 Power (cebu)
+- Equalizer soundfx ported from Motorola Moto G8 Power (cebu) and integrated as a Magisk Module for all supported and rooted devices with Magisk
 - Global type soundfx
-- Sources: https://github.com/reiryuki/AudioFx-Moto-G8-Power-Magisk-Module/blob/main/module.prop
+
+## Sources
+- https://dumps.tadiphone.dev/dumps/motorola/cebu msi-user-11-RZCS31.Q2-57-12-1-6e2bd-release-keys
+
+## Screenshots
+- https://t.me/androidryukimods/484
 
 ## Requirements
 - Android 8 and up
-- Magisk installed
+- Magisk Installed
 
-## Installation Guide
-- Install the module via Magisk app or recovery
-- Install AML Magisk Module only if using any other audio mod module https://zackptg5.com/android.php#aml
+## Installation Guide & Download Link
+- Install this module https://www.pling.com/p/1531559/ via Magisk Manager or Recovery
+- Install AML Magisk Module https://zackptg5.com/android.php#aml only if using any other audio mod module
 - Reboot
+
+## Optionals
+- https://t.me/androidryukimodsdiscussions/60861
+- https://t.me/androidryukimodsdiscussions/26764
+
+## Troubleshootings
+- https://t.me/androidryukimodsdiscussions/29836
+
+## Support & Bug Report
+- https://t.me/androidryukimodsdiscussions/2618
 
 ## Tested on
 - CrDroid ROM Android 10
@@ -20,32 +39,15 @@
 - Ancient OS ROM Android 12
 - Nusantara ROM Android 12L
 
-## Optionals
-- https://t.me/androidryukimodsdiscussions/60861
-- https://t.me/androidryukimodsdiscussions/26764
-- You can reset the data by run at Terminal Emulator (only for v3.8 and bellow):
-
-  su
-
-  `setprop audiofx.cleanup 1`
-
-  Re-install the module after.
-
-## Troubleshootings
-- https://t.me/androidryukimodsdiscussions/29836
-
-## Bug Report
-- https://t.me/androidryukimodsdiscussions/2618 (Issues will be closed immediately without this.)
-
-## Credits
+## Credits and contributors
 - https://t.me/viperatmos
 - https://t.me/androidryukimodsdiscussions
-- https://t.me/androidappsportdevelopment
+- You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
 
 ## Thanks for Donations
-- https://t.me/androidryukimodsdiscussions/2619
-- https://www.paypal.me/reiryuki
+- This Magisk Module is always will be free but you can however show us that you are care by making a donations:
 - https://ko-fi.com/reiryuki
+- https://www.paypal.me/reiryuki
+- https://t.me/androidryukimodsdiscussions/2619
 
-## Download
-- https://www.pling.com/p/1531559/
+
