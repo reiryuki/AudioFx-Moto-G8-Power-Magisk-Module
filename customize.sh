@@ -403,14 +403,12 @@ if [ "`grep_prop other.etc $OPTIONALS`" == 1 ]; then
 fi
 
 # permission
-if [ "$API" -ge 26 ]; then
-  ui_print "- Setting permission..."
-  DIR=`find $MODPATH/system/vendor -type d`
-  for DIRS in $DIR; do
-    chown 0.2000 $DIRS
-  done
-  ui_print " "
-fi
+ui_print "- Setting permission..."
+DIR=`find $MODPATH/system/vendor -type d`
+for DIRS in $DIR; do
+  chown 0.2000 $DIRS
+done
+ui_print " "
 
 
 
