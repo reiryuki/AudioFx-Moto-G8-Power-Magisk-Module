@@ -5,7 +5,7 @@
 - The MIT license specified here is for the Magisk Module, not for Moto apps and blobs.
 
 ## Descriptions
-- Equalizer soundfx ported from Motorola Moto G8 Power (cebu) and integrated as a Magisk Module for all supported and rooted devices with Magisk
+- Equalizer soundfx ported from Motorola Moto G8 (cebu) Power (cebu) and integrated as a Magisk Module for all supported and rooted devices with Magisk
 - Global type soundfx
 
 ## Sources
@@ -16,7 +16,7 @@
 
 ## Requirements
 - Android 8 and up
-- Magisk Installed
+- Magisk installed
 
 ## Installation Guide & Download Link
 - Install this module https://www.pling.com/p/1531559/ via Magisk Manager or Recovery
@@ -32,6 +32,7 @@
 
 ## Support & Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
+- If you don't do above, issues will be closed immediately
 
 ## Tested on
 - CrDroid ROM Android 10
