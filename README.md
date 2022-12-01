@@ -5,7 +5,7 @@
 - The MIT license specified here is for the Magisk Module, not for Moto apps and blobs.
 
 ## Descriptions
-- Equalizer soundfx ported from Motorola Moto G8 (cebu) Power (cebu) and integrated as a Magisk Module for all supported and rooted devices with Magisk
+- Equalizer soundfx ported from Motorola Moto G8 Power (cebu) and integrated as a Magisk Module for all supported and rooted devices with Magisk
 - Global type soundfx
 
 ## Sources
