@@ -15,11 +15,11 @@
 - https://t.me/androidryukimods/484
 
 ## Requirements
-- Android 8 and up
+- Android 6 and up
 - Magisk installed
 
 ## Installation Guide & Download Link
-- Install this module https://www.pling.com/p/1531559/ via Magisk Manager or Recovery
+- Install this module https://www.pling.com/p/1531559/ via Magisk app or Recovery
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other audio mod module
 - Reboot
 

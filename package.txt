@@ -1,0 +1,3 @@
+com.motorola.audiofx
+com.motorola.android.providers.settings
+com.motorola.motosignature.app
