@@ -17,8 +17,10 @@
 ## Requirements
 - Android 6 and up
 - Magisk installed
+- Moto Core Magisk Module installed https://github.com/reiryuki/Moto-Core-Magisk-Module
 
 ## Installation Guide & Download Link
+- Install Moto Core Magisk Module first: https://github.com/reiryuki/Moto-Core-Magisk-Module
 - Install this module https://www.pling.com/p/1531559/ via Magisk app or Recovery
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other audio mod module
 - Reboot
