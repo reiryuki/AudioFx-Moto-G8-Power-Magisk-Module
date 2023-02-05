@@ -133,6 +133,7 @@ else
   SVC=mediaserver
 fi
 PROC=com.motorola.audiofx
+killall $PROC
 check_audioserver
 
 
