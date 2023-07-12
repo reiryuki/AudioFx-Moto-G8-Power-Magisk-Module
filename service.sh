@@ -1,85 +1,76 @@
 MODPATH=${0%/*}
 API=`getprop ro.build.version.sdk`
-AML=/data/adb/modules/aml
 
-# debug
+# log
 exec 2>$MODPATH/debug.log
 set -x
 
 # file
-NAME="ap_gain.bin ap_gain_mmul.bin"
-for NAMES in $NAME; do
-  if [ ! -f /data/vendor/$NAMES ]; then
-    cp -f /vendor/etc/$NAMES /data/vendor
-    chmod 0600 /data/vendor/$NAMES
-    chown 1013.1013 /data/vendor/$NAMES
+NAMES="ap_gain.bin ap_gain_mmul.bin"
+for NAME in $NAMES; do
+  if [ ! -f /data/vendor/$NAME ]; then
+    cp -f /vendor/etc/$NAME /data/vendor
+    chmod 0600 /data/vendor/$NAME
+    chown 1013.1013 /data/vendor/$NAME
   fi
 done
 
 # restart
 if [ "$API" -ge 24 ]; then
-  SVC=audioserver
+  SERVER=audioserver
 else
-  SVC=mediaserver
+  SERVER=mediaserver
 fi
-PID=`pidof $SVC`
+PID=`pidof $SERVER`
 if [ "$PID" ]; then
-  killall $SVC
+  killall $SERVER
 fi
 
 # wait
 sleep 20
 
 # aml fix
-DIR=$AML/system/vendor/odm/etc
-if [ -d $DIR ] && [ ! -f $AML/disable ]; then
+AML=/data/adb/modules/aml
+if [ -L $AML/system/vendor ]\
+&& [ -d $AML/vendor ]; then
+  DIR=$AML/vendor/odm/etc
+else
+  DIR=$AML/system/vendor/odm/etc
+fi
+if [ "$API" -ge 26 ] && [ -d $DIR ]\
+&& [ ! -f $AML/disable ]; then
   chcon -R u:object_r:vendor_configs_file:s0 $DIR
 fi
-
-# magisk
-if [ -d /sbin/.magisk ]; then
-  MAGISKTMP=/sbin/.magisk
+AUD=`grep AUD= $MODPATH/copy.sh | sed -e 's|AUD=||g' -e 's|"||g'`
+if [ -L $AML/system/vendor ]\
+&& [ -d $AML/vendor ]; then
+  DIR=$AML/vendor
 else
-  MAGISKTMP=`realpath /dev/*/.magisk`
-fi
-
-# path
-MIRROR=$MAGISKTMP/mirror
-SYSTEM=`realpath $MIRROR/system`
-VENDOR=`realpath $MIRROR/vendor`
-ODM=`realpath $MIRROR/odm`
-MY_PRODUCT=`realpath $MIRROR/my_product`
-
-# mount
-NAME="*audio*effects*.conf -o -name *audio*effects*.xml -o -name *policy*.conf -o -name *policy*.xml"
-if [ -d $AML ] && [ ! -f $AML/disable ]\
-&& find $AML/system/vendor -type f -name $NAME; then
-  NAME="*audio*effects*.conf -o -name *audio*effects*.xml"
-#p  NAME="*audio*effects*.conf -o -name *audio*effects*.xml -o -name *policy*.conf -o -name *policy*.xml"
   DIR=$AML/system/vendor
-else
-  DIR=$MODPATH/system/vendor
 fi
-FILE=`find $DIR/etc -maxdepth 1 -type f -name $NAME`
-if [ ! -d $ODM ] && [ "`realpath /odm/etc`" == /odm/etc ]\
-&& [ "$FILE" ]; then
-  for i in $FILE; do
-    j="/odm$(echo $i | sed "s|$DIR||")"
-    if [ -f $j ]; then
-      umount $j
-      mount -o bind $i $j
-    fi
-  done
-fi
-if [ ! -d $MY_PRODUCT ] && [ -d /my_product/etc ]\
-&& [ "$FILE" ]; then
-  for i in $FILE; do
-    j="/my_product$(echo $i | sed "s|$DIR||")"
-    if [ -f $j ]; then
-      umount $j
-      mount -o bind $i $j
-    fi
-  done
+FILES=`find $DIR -type f -name $AUD`
+if [ -d $AML ] && [ ! -f $AML/disable ]\
+&& find $DIR -type f -name $AUD; then
+  if ! grep '/odm' $AML/post-fs-data.sh && [ -d /odm ]\
+  && [ "`realpath /odm/etc`" == /odm/etc ]; then
+    for FILE in $FILES; do
+      DES=/odm`echo $FILE | sed "s|$DIR||g"`
+      if [ -f $DES ]; then
+        umount $DES
+        mount -o bind $FILE $DES
+      fi
+    done
+  fi
+  if ! grep '/my_product' $AML/post-fs-data.sh\
+  && [ -d /my_product ]; then
+    for FILE in $FILES; do
+      DES=/my_product`echo $FILE | sed "s|$DIR||g"`
+      if [ -f $DES ]; then
+        umount $DES
+        mount -o bind $FILE $DES
+      fi
+    done
+  fi
 fi
 
 # wait
@@ -95,6 +86,11 @@ fi
 if [ "$API" -ge 30 ]; then
   appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
 fi
+PKGOPS=`appops get $PKG`
+UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 userId= | sed 's|    userId=||g'`
+if [ "$UID" -gt 9999 ]; then
+  UIDOPS=`appops get --uid "$UID"`
+fi
 
 # function
 stop_log() {
@@ -109,29 +105,24 @@ check_audioserver() {
 if [ "$NEXTPID" ]; then
   PID=$NEXTPID
 else
-  PID=`pidof $SVC`
+  PID=`pidof $SERVER`
 fi
-sleep 10
+sleep 15
 stop_log
-NEXTPID=`pidof $SVC`
-if [ "`getprop init.svc.$SVC`" != stopped ]; then
+NEXTPID=`pidof $SERVER`
+if [ "`getprop init.svc.$SERVER`" != stopped ]; then
   until [ "$PID" != "$NEXTPID" ]; do
     check_audioserver
   done
   killall $PROC
   check_audioserver
 else
-  start $SVC
+  start $SERVER
   check_audioserver
 fi
 }
 
 # check
-if [ "$API" -ge 24 ]; then
-  SVC=audioserver
-else
-  SVC=mediaserver
-fi
 PROC=com.motorola.audiofx
 killall $PROC
 check_audioserver

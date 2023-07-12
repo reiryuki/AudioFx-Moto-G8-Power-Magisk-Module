@@ -2,7 +2,7 @@
 
 ## DISCLAIMER
 - Moto apps and blobs are owned by Motorola™.
-- The MIT license specified here is for the Magisk Module, not for Moto apps and blobs.
+- The MIT license specified here is for the Magisk Module only, not for Moto apps and blobs.
 
 ## Descriptions
 - Equalizer soundfx ported from Motorola Moto G8 Power (cebu) and integrated as a Magisk Module for all supported and rooted devices with Magisk
@@ -16,14 +16,16 @@
 
 ## Requirements
 - Android 6 and up
-- Magisk installed
-- Moto Core Magisk Module installed https://github.com/reiryuki/Moto-Core-Magisk-Module
+- Magisk or KernelSU installed
+- Moto Core Magisk Module installed https://github.com/reiryuki/Moto-Core-Magisk-Module except you are in Motorola ROM
 
 ## Installation Guide & Download Link
-- Install Moto Core Magisk Module first: https://github.com/reiryuki/Moto-Core-Magisk-Module
-- Install this module https://www.pling.com/p/1531559/ via Magisk app or Recovery
+- Install Moto Core Magisk Module first: https://github.com/reiryuki/Moto-Core-Magisk-Module except you are in Motorola ROM
+- Install this module https://www.pling.com/p/1531559/ via Magisk app or KernelSU app or Recovery if Magisk installed
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other audio mod module
 - Reboot
+- If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot after
+- If you are using SUList, you need to allow list manually your home launcher app (enable show system apps) and reboot after
 
 ## Optionals
 - https://t.me/androidryukimodsdiscussions/60861
