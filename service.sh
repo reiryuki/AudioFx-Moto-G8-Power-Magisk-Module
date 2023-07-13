@@ -95,7 +95,7 @@ fi
 # function
 stop_log() {
 FILE=$MODPATH/debug.log
-SIZE=`du $FILE | sed "s|$FILE||"`
+SIZE=`du $FILE | sed "s|$FILE||g"`
 if [ "$LOG" != stopped ] && [ "$SIZE" -gt 50 ]; then
   exec 2>/dev/null
   LOG=stopped
