@@ -43,7 +43,7 @@
 - Android 11 DotOS ROM
 - Android 12 Ancient OS ROM
 - Android 12.1 Nusantara ROM
-- Android 13 AOSP ROM
+- Android 13 AOSP ROM & CrDroid ROM
 
 ## Credits and contributors
 - https://t.me/viperatmos
