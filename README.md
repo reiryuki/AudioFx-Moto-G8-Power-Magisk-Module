@@ -12,7 +12,7 @@
 - https://dumps.tadiphone.dev/dumps/motorola/cebu msi-user-11-RZCS31.Q2-57-12-1-6e2bd-release-keys
 
 ## Screenshots
-- https://t.me/androidryukimods/484
+- https://t.me/androidryukimodsdiscussions/174582
 
 ## Requirements
 - Android 6 and up
