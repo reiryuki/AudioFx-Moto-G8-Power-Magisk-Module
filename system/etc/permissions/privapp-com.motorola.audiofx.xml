@@ -2,5 +2,7 @@
 <permissions>
     <privapp-permissions package="com.motorola.audiofx">
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <permission name="com.motorola.permission.ACCESS_CHECKIN"/>
+        <permission name="com.motorola.permission.BIND_EXPERIENCE"/>
     </privapp-permissions>
 </permissions>
