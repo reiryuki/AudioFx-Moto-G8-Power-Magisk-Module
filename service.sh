@@ -1,9 +1,11 @@
 MODPATH=${0%/*}
-API=`getprop ro.build.version.sdk`
 
 # log
 exec 2>$MODPATH/debug.log
 set -x
+
+# var
+API=`getprop ro.build.version.sdk`
 
 # file
 NAMES="ap_gain.bin ap_gain_mmul.bin"
@@ -14,6 +16,9 @@ for NAME in $NAMES; do
     chown 1013.1013 /data/vendor/$NAME
   fi
 done
+
+# prop
+resetprop ro.audio.ignore_effects false
 
 # restart
 if [ "$API" -ge 24 ]; then
