@@ -1,7 +1,8 @@
 MODPATH=${0%/*}
 
 # log
-exec 2>$MODPATH/debug.log
+LOGFILE=$MODPATH/debug.log
+exec 2>$LOGFILE
 set -x
 
 # var
@@ -18,7 +19,7 @@ for NAME in $NAMES; do
 done
 
 # prop
-resetprop ro.audio.ignore_effects false
+resetprop -n ro.audio.ignore_effects false
 
 # restart
 if [ "$API" -ge 24 ]; then
@@ -26,10 +27,8 @@ if [ "$API" -ge 24 ]; then
 else
   SERVER=mediaserver
 fi
-PID=`pidof $SERVER`
-if [ "$PID" ]; then
-  killall $SERVER
-fi
+killall $SERVER\
+ android.hardware.audio@4.0-service-mediatek
 
 # wait
 sleep 20
@@ -93,16 +92,19 @@ if [ "$API" -ge 30 ]; then
 fi
 PKGOPS=`appops get $PKG`
 UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 userId= | sed 's|    userId=||g'`
-if [ "$UID" -gt 9999 ]; then
+if [ "$UID" ] && [ "$UID" -gt 9999 ]; then
   UIDOPS=`appops get --uid "$UID"`
 fi
 
+# audio flinger
+DMAF=`dumpsys media.audio_flinger`
+
 # function
 stop_log() {
-FILE=$MODPATH/debug.log
-SIZE=`du $FILE | sed "s|$FILE||g"`
+SIZE=`du $LOGFILE | sed "s|$LOGFILE||g"`
 if [ "$LOG" != stopped ] && [ "$SIZE" -gt 50 ]; then
   exec 2>/dev/null
+  set +x
   LOG=stopped
 fi
 }
@@ -116,15 +118,11 @@ sleep 15
 stop_log
 NEXTPID=`pidof $SERVER`
 if [ "`getprop init.svc.$SERVER`" != stopped ]; then
-  until [ "$PID" != "$NEXTPID" ]; do
-    check_audioserver
-  done
-  killall $PROC
-  check_audioserver
+  [ "$PID" != "$NEXTPID" ] && killall $PROC
 else
   start $SERVER
-  check_audioserver
 fi
+check_audioserver
 }
 
 # check
