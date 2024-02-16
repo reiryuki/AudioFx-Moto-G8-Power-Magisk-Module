@@ -9,14 +9,14 @@ set -x
 API=`getprop ro.build.version.sdk`
 
 # file
-NAMES="ap_gain.bin ap_gain_mmul.bin"
-for NAME in $NAMES; do
-  if [ ! -f /data/vendor/$NAME ]; then
-    cp -f /vendor/etc/$NAME /data/vendor
-    chmod 0600 /data/vendor/$NAME
-    chown 1013.1013 /data/vendor/$NAME
-  fi
-done
+#NAMES="ap_gain.bin ap_gain_mmul.bin"
+#for NAME in $NAMES; do
+#  if [ ! -f /data/vendor/$NAME ]; then
+#    cp -f /vendor/etc/$NAME /data/vendor
+#    chmod 0600 /data/vendor/$NAME
+#    chown 1013.1013 /data/vendor/$NAME
+#  fi
+#done
 
 # prop
 resetprop -n ro.audio.ignore_effects false
@@ -78,7 +78,7 @@ if [ -d $AML ] && [ ! -f $AML/disable ]\
 fi
 
 # wait
-until [ "`getprop sys.boot_completed`" == "1" ]; do
+until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 10
 done
 
@@ -91,7 +91,7 @@ if [ "$API" -ge 30 ]; then
   appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
 fi
 PKGOPS=`appops get $PKG`
-UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 userId= | sed 's|    userId=||g'`
+UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 Id= | sed -e 's|    userId=||g' -e 's|    appId=||g'`
 if [ "$UID" ] && [ "$UID" -gt 9999 ]; then
   UIDOPS=`appops get --uid "$UID"`
 fi
@@ -102,7 +102,7 @@ DMAF=`dumpsys media.audio_flinger`
 # function
 stop_log() {
 SIZE=`du $LOGFILE | sed "s|$LOGFILE||g"`
-if [ "$LOG" != stopped ] && [ "$SIZE" -gt 50 ]; then
+if [ "$LOG" != stopped ] && [ "$SIZE" -gt 75 ]; then
   exec 2>/dev/null
   set +x
   LOG=stopped
