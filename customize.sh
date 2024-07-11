@@ -29,15 +29,22 @@ if [ "`grep_prop debug.log $OPTIONALS`" == 1 ]; then
   ui_print " "
 fi
 
+# recovery
+if [ "$BOOTMODE" != true ]; then
+  MODPATH_UPDATE=`echo $MODPATH | sed 's|modules/|modules_update/|g'`
+  rm -f $MODPATH/update
+  rm -rf $MODPATH_UPDATE
+fi
+
 # run
 . $MODPATH/function.sh
 
 # info
 MODVER=`grep_prop version $MODPATH/module.prop`
 MODVERCODE=`grep_prop versionCode $MODPATH/module.prop`
-ui_print "id=$MODID"
-ui_print "version=$MODVER"
-ui_print "versionCode=$MODVERCODE"
+ui_print " id=$MODID"
+ui_print " version=$MODVER"
+ui_print " versionCode=$MODVERCODE"
 if [ "$KSU" == true ]; then
   ui_print " KSUVersion=$KSU_VER"
   ui_print " KSUVersionCode=$KSU_VER_CODE"
@@ -49,17 +56,11 @@ else
 fi
 ui_print " "
 
-# 32 bit
-if [ ! "$LIST32BIT" ]; then
-  abort "- This ROM doesn't support 32 bit library."
-fi
-
 # sdk
 NUM=23
 if [ "$API" -lt $NUM ]; then
   ui_print "! Unsupported SDK $API. You have to upgrade your"
-  ui_print "  Android version at least SDK API $NUM to use this"
-  ui_print "  module."
+  ui_print "  Android version at least SDK $NUM to use this module."
   abort
 else
   ui_print "- SDK $API"
@@ -68,6 +69,28 @@ fi
 
 # recovery
 mount_partitions_in_recovery
+
+# bit
+AUDIO64BIT=`grep linker64 /*/bin/hw/*hardware*audio*`
+if [ "$LIST32BIT" ]; then
+  if [ "$IS64BIT" == true ]; then
+    ui_print "- 64 bit architecture"
+    ui_print " "
+    ui_print "- 32 bit library support"
+    ui_print " "
+  else
+    ui_print "- 32 bit architecture"
+    rm -rf `find $MODPATH -type d -name *64*`
+    ui_print " "
+  fi
+  if [ "$AUDIO64BIT" ]; then
+    ui_print "! This module uses 32 bit audio service only"
+    ui_print "  But this ROM uses 64 bit audio service"
+    abort
+  fi
+else
+  abort "! This ROM doesn't support 32 bit library"
+fi
 
 # magisk
 magisk_setup
@@ -126,7 +149,10 @@ ui_print "- Cleaning..."
 PKGS=`cat $MODPATH/package.txt`
 if [ "$BOOTMODE" == true ]; then
   for PKG in $PKGS; do
-    RES=`pm uninstall $PKG 2>/dev/null`
+    FILE=`find /data/app -name *$PKG*`
+    if [ "$FILE" ]; then
+      RES=`pm uninstall $PKG 2>/dev/null`
+    fi
   done
 fi
 remove_sepolicy_rule
@@ -361,7 +387,7 @@ fi
 # raw
 FILE=$MODPATH/.aml.sh
 if [ "`grep_prop disable.raw $OPTIONALS`" == 0 ]; then
-  ui_print "- Not disables Ultra Low Latency playback (RAW)"
+  ui_print "- Does not disable Ultra Low Latency playback (RAW)"
   ui_print " "
 else
   sed -i 's|#u||g' $FILE

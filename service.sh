@@ -82,6 +82,22 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 10
 done
 
+# list
+PKGS=`cat $MODPATH/package.txt`
+for PKG in $PKGS; do
+  magisk --denylist rm $PKG 2>/dev/null
+  magisk --sulist add $PKG 2>/dev/null
+done
+if magisk magiskhide sulist; then
+  for PKG in $PKGS; do
+    magisk magiskhide add $PKG
+  done
+else
+  for PKG in $PKGS; do
+    magisk magiskhide rm $PKG
+  done
+fi
+
 # grant
 PKG=com.motorola.audiofx
 if [ "$API" -ge 33 ]; then
@@ -126,7 +142,7 @@ check_audioserver
 }
 
 # check
-PROC=com.motorola.audiofx
+PROC=`cat $MODPATH/package.txt`
 killall $PROC
 check_audioserver
 
