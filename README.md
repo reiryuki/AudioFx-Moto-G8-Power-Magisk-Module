@@ -7,6 +7,7 @@
 ## Descriptions
 - Equalizer sound effect ported from Motorola G8 Power (cebu) and integrated as a Magisk Module for all supported and rooted devices with Magisk
 - Global type sound effect
+- libspeakerbundle.so can only be activated via post process stream mode (READ Optionals bellow!)
 
 ## Sources
 - https://dumps.tadiphone.dev/dumps/motorola/cebu msi-user-11-RZCS31.Q2-57-12-1-6e2bd-release-keys
@@ -40,14 +41,6 @@
 ## Support & Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
 - If you don't do above, issues will be closed immediately
-
-## Tested on
-- Android 10 CrDroid ROM
-- Android 11 DotOS ROM
-- Android 12 Ancient OS ROM
-- Android 12.1 Nusantara ROM
-- Android 13 AOSP ROM & CrDroid ROM
-- Android 14 LineageOS ROM
 
 ## Credits and Contributors
 - https://t.me/viperatmos

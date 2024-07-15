@@ -277,7 +277,8 @@ done
 }
 
 # hide
-APPS="`ls $MODPATH/system/priv-app` `ls $MODPATH/system/app`"
+APPS="`ls $MODPATH/system/priv-app`
+      `ls $MODPATH/system/app`"
 hide_oat
 APPS=MusicFX
 hide_app
@@ -285,82 +286,83 @@ hide_app
 # stream mode
 FILE=$MODPATH/.aml.sh
 PROP=`grep_prop stream.mode $OPTIONALS`
+NAME=libspeakerbundle.so
 if echo "$PROP" | grep -q m; then
-  ui_print "- Activating music stream..."
+  ui_print "- Loads $NAME to music stream..."
   sed -i 's|#m||g' $FILE
-  sed -i 's|musicstream=|musicstream=true|g' $MODPATH/acdb.conf
+  sed -i 's|musicstream=|musicstream=true|g' $MODPATH/acdb*.conf
   ui_print " "
 else
   APPS=AudioFX
   hide_app
 fi
 if echo "$PROP" | grep -q r; then
-  ui_print "- Activating ring stream..."
+  ui_print "- Loads $NAME to ring stream..."
   sed -i 's|#r||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q a; then
-  ui_print "- Activating alarm stream..."
+  ui_print "- Loads $NAME to alarm stream..."
   sed -i 's|#a||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q s; then
-  ui_print "- Activating system stream..."
+  ui_print "- Loads $NAME to system stream..."
   sed -i 's|#s||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q v; then
-  ui_print "- Activating voice_call stream..."
+  ui_print "- Loads $NAME to voice_call stream..."
   sed -i 's|#v||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q n; then
-  ui_print "- Activating notification stream..."
+  ui_print "- Loads $NAME to notification stream..."
   sed -i 's|#n||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q b; then
-  ui_print "- Activating bluetooth_sco stream..."
+  ui_print "- Loads $NAME to bluetooth_sco stream..."
   sed -i 's|#b||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q f; then
-  ui_print "- Activating dtmf stream..."
+  ui_print "- Loads $NAME to dtmf stream..."
   sed -i 's|#f||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q e; then
-  ui_print "- Activating enforced_audible stream..."
+  ui_print "- Loads $NAME to enforced_audible stream..."
   sed -i 's|#e||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q y; then
-  ui_print "- Activating accessibility stream..."
+  ui_print "- Loads $NAME to accessibility stream..."
   sed -i 's|#y||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q t; then
-  ui_print "- Activating tts stream..."
+  ui_print "- Loads $NAME to tts stream..."
   sed -i 's|#t||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q i; then
-  ui_print "- Activating assistant stream..."
+  ui_print "- Loads $NAME to assistant stream..."
   sed -i 's|#i||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q c; then
-  ui_print "- Activating call_assistant stream..."
+  ui_print "- Loads $NAME to call_assistant stream..."
   sed -i 's|#c||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q p; then
-  ui_print "- Activating patch stream..."
+  ui_print "- Loads $NAME to patch stream..."
   sed -i 's|#p||g' $FILE
   ui_print " "
 fi
 if echo "$PROP" | grep -q g; then
-  ui_print "- Activating rerouting stream..."
+  ui_print "- Loads $NAME to rerouting stream..."
   sed -i 's|#g||g' $FILE
   ui_print " "
 fi

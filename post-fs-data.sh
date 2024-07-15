@@ -63,6 +63,12 @@ fi
 # run
 . $MODPATH/.aml.sh
 
+# directory
+DIR=/data/vendor/misc/audio
+mkdir -p $DIR/audio_cutback/cutback
+chmod -R 0770 $DIR/audio_cutback/cutback
+chown -R 1005.1005 $DIR/audio_cutback/cutback
+
 # remove
 rm -f /data/vendor/ap_gain*.bin
 
