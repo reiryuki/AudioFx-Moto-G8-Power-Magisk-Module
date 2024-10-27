@@ -1,8 +1,8 @@
 id=AudioFxMoto
 name=AudioFx Moto G8 Power
-version=v4.0
-versionCode=40
+version=v4.1
+versionCode=41
 author=Rei Ryuki the Fixer
-description=An equalizer global type sound effect ported from Motorola G8 Power (cebu) for any Android 6 and up.
+description=Equalizer global type sound effect ported from Motorola G8 Power (cebu) for any armeabi-v7a or arm64-v8a architecture, Android 6 (SDK 23) and up.
 
 
