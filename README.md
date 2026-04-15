@@ -13,6 +13,53 @@
 - https://dumps.tadiphone.dev/dumps/motorola/cebu msi-user-11-RZCS31.Q2-57-12-1-6e2bd-release-keys
 - libmagiskpolicy.so: Kitsune Mask R6687BB53
 
+## Changelog
+
+v4.6
+- Does not disable raw playback (You can use Audio Compatibility Patch Reborn Magisk Module instead)
+
+v4.5
+- Fix wrong target in latest KernelSU
+
+v4.4
+- Tidy up aml.sh
+- Exclude audioeffectshaptic.xml
+- Abort installation if fail to mount mirror system
+- Fix wrong file permissions in some ROMs
+
+v4.3
+- Improve /odm and /my_product support detection
+
+v4.2
+- Add Action button to clear apps caches
+- Fix architecture detection in some weird ROMs
+- Fix bug in uninstall.sh
+
+v4.1
+- Allow installation in Android Emulator
+- Fix architecture detection
+
+v4.0
+- Add Mot Speaker Helper sound effects (libspeakerbundle.so) (can only be activated via stream mode optional)
+
+v3.19
+- Fix architecture detection
+- Improve audio_effects.xml patch detection
+- Fix conflict with modules_update while installing via recovery if Magisk installed
+- Fix MagiskHide & SUList
+
+v3.18
+- Add new Magisk and Kitsune Mask support (independent mirror)
+- Remount partitions before mounting mirror to prevent mount failure caused by device/resource busy
+- Fix a script bug
+- Does not copy files to /data/vendor/ (it was unnecessary thing)
+
+v3.17
+- Redirect /sdcard to /data/media/"$UID"
+- Add optional debug.log=1 for more detailed install log
+- Fix MagiskHide & SUList
+- Kitsune Mask detection
+
 ## Screenshots
 - https://t.me/androidryukimodsdiscussions/174582
 
@@ -26,7 +73,7 @@
 ## Installation Guide & Download Link
 - If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs first
 - Install Moto Core Magisk Module first: https://github.com/reiryuki/Moto-Core-Magisk-Module except you are in Motorola ROM
-- Install this module https://www.pling.com/p/1531559/ via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
+- Install this module via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/ryukinotes/34 only if using any other else audio mod module
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards
