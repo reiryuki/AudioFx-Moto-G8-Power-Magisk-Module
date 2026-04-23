@@ -64,14 +64,14 @@ v3.17
 - https://t.me/androidryukimodsdiscussions/174582
 
 ## Requirements
-- armeabi-v7a or arm64-v8a architecture
-- 32 bit HIDL audio service (this also can be found in 64 bit ROM with 32 bit support, not only 32 bit ROM)
+- armeabi-v7a or arm64-v8a with armeabi-v7a support architecture
+- 32 bit HIDL audio service
 - Android 6 (SDK 23) and up
 - Magisk or Kitsune Mask or KernelSU or Apatch installed
 - Moto Core Magisk Module installed https://github.com/reiryuki/Moto-Core-Magisk-Module except you are in Motorola ROM
 
 ## Installation Guide & Download Link
-- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs first
+- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs or https://github.com/KernelSU-Modules-Repo/magic_mount_rs or https://github.com/KernelSU-Modules-Repo/hybrid_mount first depending on ROM compatibility
 - Install Moto Core Magisk Module first: https://github.com/reiryuki/Moto-Core-Magisk-Module except you are in Motorola ROM
 - Install this module https://devuploads.com/0qtmfka64wx3 via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/ryukinotes/34 only if using any other else audio mod module
